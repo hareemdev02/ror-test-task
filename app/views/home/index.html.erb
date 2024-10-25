@@ -1,0 +1,71 @@
+<div class="form-container">
+  <h1>Create New Board</h1>
+
+  <%= form_with(model: @board, url: boards_path, local: true, class: 'board-form') do |form| %>
+    <div class="form-group">
+      <%= form.label :board_name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-input', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :email, class: 'form-label' %>
+      <%= form.text_field :email, class: 'form-input', required: true, type: 'email' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :board_width, class: 'form-label' %>
+      <%= form.number_field :width, class: 'form-input', required: true, min: 1 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :board_height, class: 'form-label' %>
+      <%= form.number_field :height, class: 'form-input', required: true, min: 1 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :num_of_mines, class: 'form-label' %>
+      <%= form.number_field :num_mines, class: 'form-input', required: true, min: 0 %>
+    </div>
+
+    <%= form.submit "Generate Board", disabled: @board.errors.any? , class: 'form-submit' %>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Recent Boards</h1>
+    </div>
+    <div class="col d-flex align-items-end">
+      <%= link_to 'View All Boards', boards_path, class: 'btn-success btn ml-auto' %>
+    </div>
+  </div>
+
+
+  <table class="board-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th>Number of Mines</th>
+        <th>Created At</th>
+        <!-- <th>Actions</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <% top_ten_minesweeper_boards.each do |board| %>
+        <tr>
+          <td><%= link_to board.name, board_path(board) %></td>
+          <td><%= board.email %></td>
+          <td><%= board.width %></td>
+          <td><%= board.height %></td>
+          <td><%= board.num_mines %></td>
+          <td><%= board.created_at.strftime('%a, %b %e, \'%y') %></td>
+          <!-- <td><%= link_to 'Show', board_path(board) %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

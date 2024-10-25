@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.board-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-submit {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.board-table th,
+.board-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.board-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+.pagination .pagination {
+  margin: 0;
+}
+
+.pagination .page-item {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.pagination .page-item a,
+.pagination .pagination a {
+  padding: 6px 12px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #28a745;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.pagination .page-item a:hover,
+.pagination .pagination a:hover {
+  background-color: #f7f7f7;
+}
+
+.pagination .previous,
+.pagination .next {
+  margin: 0 5px;
+}
+
+.disabled {
+  padding: 6px 12px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.current {
+  padding: 6px 12px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.pagination .current-items {
+  padding: 8px;
+}
+
+.alert {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}

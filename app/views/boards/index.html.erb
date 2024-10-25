@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="container">
+    <h3>Boards</h3>
+    <div class='row' ><%= link_to 'Back to Home Page', root_path, class: 'btn btn-success' %></div>
+  </div>
+  <table class="board-table mt-2">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th>Number of Mines</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @boards.order(created_at: :desc).each do |board| %>
+        <tr>
+          <td><%= board.name %></td>
+          <td><%= board.email %></td>
+          <td><%= board.width %></td>
+          <td><%= board.height %></td>
+          <td><%= board.num_mines %></td>
+          <td><%= board.created_at.strftime('%a, %b %e, \'%y') %></td>
+          <td><%= link_to 'Show', board_path(board) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <span class="current-items">(<%= number_with_delimiter(@boards.offset + 1) %> - <%= number_with_delimiter(@boards.offset + @boards.length) %> / <%= number_with_delimiter(@boards.total_entries) %>)</span>
+    <%= will_paginate @boards %>
+  </div>
+</div>
